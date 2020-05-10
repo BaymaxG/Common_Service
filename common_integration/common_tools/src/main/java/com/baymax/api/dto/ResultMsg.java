@@ -8,11 +8,19 @@ import lombok.Data;
  */
 @Data
 public class ResultMsg<T> {
+    private static final int SUCCESS_STATUS = 1;
+
+    private static final String SUCCESS_MSG = "success";
+
+    private static final int FAILED_STATUS = 0;
+
+    private static final String FAILED_MSG = "failed";
+
     private String errorCode;
 
     private int status;
 
-    private String errorMsg;
+    private String msg;
 
     private T Data;
 
@@ -25,7 +33,8 @@ public class ResultMsg<T> {
 
     public static ResultMsg buildSuccess(Object data) {
         ResultMsg resultMsg = new ResultMsg(data);
-        resultMsg.setStatus(1);
+        resultMsg.setStatus(SUCCESS_STATUS);
+        resultMsg.setMsg(SUCCESS_MSG);
         return resultMsg;
     }
 
@@ -36,7 +45,8 @@ public class ResultMsg<T> {
     public static ResultMsg buildFailed(Object data) {
         ResultMsg resultMsg = new ResultMsg(data);
         resultMsg.setErrorCode("E999999");
-        resultMsg.setStatus(0);
+        resultMsg.setStatus(FAILED_STATUS);
+        resultMsg.setMsg(FAILED_MSG);
         return resultMsg;
     }
 
