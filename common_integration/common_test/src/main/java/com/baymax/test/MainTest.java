@@ -13,6 +13,10 @@ public class MainTest {
         System.out.println(">>=========================<<");
     }
 
+    public static void test1() {
+        System.out.println("============");
+    }
+
     private static void myTest(String text) {
         System.out.println(text);
     }
