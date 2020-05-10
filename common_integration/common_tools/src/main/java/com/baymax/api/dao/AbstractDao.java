@@ -51,7 +51,7 @@ public abstract class AbstractDao<T> {
         return getEntityManager().find(tClass, id);
     }
 
-    EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         try {
             DefaultTransactionStatus defaultTransactionStatus = (DefaultTransactionStatus) TransactionAspectSupport.currentTransactionStatus();
             JdbcTransactionObjectSupport transaction = (JdbcTransactionObjectSupport) defaultTransactionStatus.getTransaction();
