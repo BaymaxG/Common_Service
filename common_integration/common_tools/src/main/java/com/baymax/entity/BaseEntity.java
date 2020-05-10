@@ -5,6 +5,7 @@
 package com.baymax.entity;
 
 import com.baymax.entity.listener.BaseEntityListener;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 
@@ -33,13 +34,14 @@ public class BaseEntity {
     @Column(name = "delete_flag", columnDefinition = "VARCHAR(1) COMMENT '删除标记'")
     private String deleteFlag;
 
-    @Column(name = "create_by", columnDefinition = "VARCHAR(200) COMMENT '创建人'")
+    @Column(name = "create_by", columnDefinition = "VARCHAR(200) COMMENT '创建人'", updatable = false)
     private String createBy;
 
-    @Column(name = "create_account", columnDefinition = "BIGINT(20)  COMMENT '创建人账号'")
+    @Column(name = "create_account", columnDefinition = "BIGINT(20)  COMMENT '创建人账号'", updatable = false)
     private long createAccount;
 
     @Column(name = "create_date", updatable = false, columnDefinition = "DATETIME COMMENT '创建时间'")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createDate;
 
     @Column(name = "last_update_by", columnDefinition = "VARCHAR(200) COMMENT '最后更新人'")
@@ -49,6 +51,7 @@ public class BaseEntity {
     private long lastUpdateAccount;
 
     @Column(name = "last_update_date", columnDefinition = "DATETIME COMMENT '最后更新时间'")
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date lastUpdateDate;
 
     @Version
