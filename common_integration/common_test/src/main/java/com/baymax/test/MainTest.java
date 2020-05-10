@@ -23,9 +23,7 @@ public class MainTest {
         list.add("test1");
         list.add("test2");
         list.add("test3");
-        list.forEach(str -> {
-            System.out.println(str);
-        });
+        list.forEach(System.out::println);
         System.out.println("============");
     }
 
