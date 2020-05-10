@@ -4,6 +4,8 @@
 
 package com.baymax.test;
 
+import org.springframework.util.CollectionUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +27,15 @@ public class MainTest {
             System.out.println(str);
         });
         System.out.println("============");
+    }
+
+    public static void test2(List<String> list) {
+        if (CollectionUtils.isEmpty(list)) {
+            return;
+        }
+        long count = list.stream().distinct().count();
+        System.out.println(count + "\r\n");
+        list.forEach(str -> System.out.println(str));
     }
 
     private static void myTest(String text) {
