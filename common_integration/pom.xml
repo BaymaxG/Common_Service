@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>common_tools</module>
+        <module>common_test</module>
     </modules>
 
     <dependencies>
